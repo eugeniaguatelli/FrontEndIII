@@ -12,11 +12,19 @@ import { useState } from "react";
 
 export default function Item(props) {
     const [itemsEnStock, setItemsEnStock] = useState(props.stock);
+    function compra(){
+        if(itemsEnStock > 0){
+            setItemsEnStock(itemsEnStock -1)
+            props.agregar()
+        }
+    }
+
   return (
     <div className='producto'>
         <h3>{props.nombre}</h3>
         <p>{props.descripcion}</p>
-        <h5>En stock: <span>{itemsEnStock}</span></h5>
+        <h5>En stock: <span>{itemsEnStock > 0 ? itemsEnStock : 'agotado'}</span></h5>
+        <button onClick={() => compra()} disabled={itemsEnStock<=0}>{itemsEnStock > 0 ? 'COMPRAR': 'SIN STOCK'}</button>
     </div>
   )
 }

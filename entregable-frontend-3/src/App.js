@@ -11,10 +11,14 @@ import Listado from './components/Listado'
 function App() {
  const [cantidadProductos, setCantidadProductos] = useState(0);
 
+ function agregar(){
+    setCantidadProductos(cantidadProductos + 1)
+}
+
   return (
     <div className="App">
       <Cabecera cantidadProductos={cantidadProductos} />
-      <Listado />
+      <Listado agregar={agregar} />
     </div>
   );
 }
