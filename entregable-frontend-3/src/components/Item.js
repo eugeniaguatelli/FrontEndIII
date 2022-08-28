@@ -1,4 +1,3 @@
-
 // El componente Item no tiene componentes hijos.
 // ESTADO: Item debe tener un número para almacenar la cantidad de stock, la misma se la defina el padre a la hora de crearlo.
 // MÉTODOS: Item debe manejar el click de su boton para restar la cantidad en stock de sí mismo y a su vez poder aumentar el estado de su "abuelo" App.
@@ -23,7 +22,7 @@ export default function Item(props) {
     <div className='producto'>
         <h3>{props.nombre}</h3>
         <p>{props.descripcion}</p>
-        <h5>En stock: <span>{itemsEnStock > 0 ? itemsEnStock : 'agotado'}</span></h5>
+        <h5>En stock: {itemsEnStock > 0 ? itemsEnStock : <span> agotado </span>}</h5>
         <button onClick={() => compra()} disabled={itemsEnStock<=0}>{itemsEnStock > 0 ? 'COMPRAR': 'SIN STOCK'}</button>
     </div>
   )
