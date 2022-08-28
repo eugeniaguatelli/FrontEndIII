@@ -10,6 +10,7 @@ import React from 'react'
 export default function Listado() {
   return (
     <div className='container'>
+        hola
       {/* renderizamos los Item aquí */}
     </div>
   )
